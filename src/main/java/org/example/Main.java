@@ -6,6 +6,8 @@ import java.io.*;
 import org.example.logs.Log;
 import org.example.log_parser_factory.JsonLogParser;
 
+import static org.example.logs.Konfrontation.Galaktisch;
+
 
 public class Main {
     public static void main(String[] args) throws IOException {
@@ -30,6 +32,7 @@ public class Main {
         }
 
         displayHeldWithHigherEinfluss(jsonLogs);
+        sortGalaktischeKonfrontationenByDatum(jsonLogs);
     }
 
 
@@ -51,6 +54,25 @@ public class Main {
         }
     }
 
-    public static void sortGalaktischeKonfrontationenByDatum(ArrayList<Log> logs) {}
+    public static void sortGalaktischeKonfrontationenByDatum(ArrayList<Log> logs) {
+        List<Log> newLogs = new ArrayList<>();
+        for(Log log : logs) {
+            if(Objects.equals(log.getKonfrontationstyp(), Galaktisch)) {
+                newLogs.add(log);
+            }
+        }
+
+
+
+        newLogs.sort((p1,p2) -> p2.getDatum().compareTo(p1.getDatum()));
+
+
+        for(Log log : newLogs) {
+            System.out.print(log.getDatum() + ":");
+            System.out.print(log.getHeld() + " vs. ");
+            System.out.print(log.getAntagonist() + " ");
+            System.out.println(log.getOrt() + " ");
+        }
+    }
 
 }
