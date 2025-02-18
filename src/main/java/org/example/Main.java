@@ -11,7 +11,7 @@ public class Main {
     public static void main(String[] args) throws IOException {
 
         String jsonLogFilePath = "marvel_konfrontationen.json";
-        ArrayList<Log> jsonLogs;
+        ArrayList<Log> jsonLogs = null;
 
         System.out.println("------------------------------------------");
         System.out.println("JSON");
@@ -27,6 +27,23 @@ public class Main {
 
         } catch (Exception e) {
             System.out.println(e);
+        }
+
+        displayHeldWithHigherEinfluss(jsonLogs);
+    }
+
+
+
+    public static void displayHeldWithHigherEinfluss(List<Log> logs)
+    {
+        double einfluss;
+        System.out.println("Write the letter");
+        einfluss = Double.parseDouble(System.console().readLine());
+
+        for (Log log : logs) {
+            if (log.getGlobalerEinfluss()>einfluss) {
+                System.out.println(log);
+            }
         }
     }
 }
