@@ -4,13 +4,13 @@ public class Log {
     private int Id;
     private String Held;
     private String Antagonist;
-    private String Konfrontationstyp;
+    private Konfrontation Konfrontationstyp;
     private String Ort;
     private String Datum;
     private double GlobalerEinfluss;
 
     public Log(int id, String held, String antagonist,
-               String konfrontationstyp, String ort, String datum, double globalerEinfluss) {
+               Konfrontation konfrontationstyp, String ort, String datum, double globalerEinfluss) {
         Id = id;
         Held = held;
         Antagonist = antagonist;
@@ -57,11 +57,11 @@ public class Log {
         Antagonist = antagonist;
     }
 
-    public String getKonfrontationstyp() {
+    public Konfrontation getKonfrontationstyp() {
         return Konfrontationstyp;
     }
 
-    public void setKonfrontationstyp(String konfrontationstyp) {
+    public void setKonfrontationstyp(Konfrontation konfrontationstyp) {
         Konfrontationstyp = konfrontationstyp;
     }
 
