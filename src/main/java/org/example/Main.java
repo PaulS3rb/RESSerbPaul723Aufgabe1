@@ -39,11 +39,18 @@ public class Main {
         double einfluss;
         System.out.println("Write the letter");
         einfluss = Double.parseDouble(System.console().readLine());
-
+        List<String>  heroes = new ArrayList<>();
         for (Log log : logs) {
-            if (log.getGlobalerEinfluss()>einfluss) {
-                System.out.println(log);
+            if (log.getGlobalerEinfluss()>einfluss && !heroes.contains(log.getHeld()) ) {
+                heroes.add(log.getHeld());
             }
         }
+
+        for (String hero : heroes) {
+            System.out.println(hero);
+        }
     }
+
+    public static void sortGalaktischeKonfrontationenByDatum(ArrayList<Log> logs) {}
+
 }
